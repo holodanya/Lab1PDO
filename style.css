@@ -2,10 +2,6 @@ body {
   background-color: azure;
 }
 
-h1 {
-  font: bold 20px "Courier New", sans-serif;
-}
-
 table,
 th,
 td {
@@ -13,4 +9,15 @@ td {
   max-width: 500px;
   text-align: center;
   border: 1px solid black;
+}
+
+#SelectForm fieldset {
+  font: bold 20px "Courier New", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 250px;
 }
