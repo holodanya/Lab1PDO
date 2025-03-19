@@ -71,22 +71,25 @@ $lessons = getTimetable($dbh);
             <th>Викладач</th>
             <th>Тип заняття</th>
         </tr>
-        <?php if (!empty($lessons)): ?>
-            <?php foreach ($lessons as $lesson): ?>
-                <tr>
-                    <td><?= $lesson['week_day'] ?></td>
-                    <td><?= $lesson['lesson_number'] ?></td>
-                    <td><?= $lesson['auditorium'] ?></td>
-                    <td><?= $lesson['disciple'] ?></td>
-                    <td><?= $lesson['teacher_name'] ?></td>
-                    <td><?= $lesson['type'] ?></td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr>
-                <td colspan="6">Немає даних</td>
-            </tr>
-        <?php endif; ?>
+        <?php
+        if (!empty($lessons)) {
+            foreach ($lessons as $lesson) {
+                echo '<tr>
+            <td>' . $lesson['week_day'] . '</td>
+            <td>' . $lesson['lesson_number'] . '</td>
+            <td>' . $lesson['auditorium'] . '</td>
+            <td>' . $lesson['disciple'] . '</td>
+            <td>' . $lesson['teacher_name'] . '</td>
+            <td>' . $lesson['type'] . '</td>
+        </tr>';
+            }
+        } else {
+            echo '<tr>
+        <td colspan="6">Немає даних</td>
+    </tr>';
+        }
+        ?>
+
     </table>
 
 </body>
