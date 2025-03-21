@@ -7,6 +7,7 @@ $options = array(PDO::ATTR_PERSISTENT => true, PDO::MYSQL_ATTR_INIT_COMMAND => '
 
 try {
     $dbh = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password, $options);
+    echo 'Успішне підключення до бази данних';
 } catch (PDOException $e) {
     die("Помилка підключення до бази даних: " . $e->getMessage());
 }

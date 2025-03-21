@@ -17,11 +17,11 @@
                 <?php
                 include 'dbConnect.php';
 
-                $stmt = $dbh->query("SELECT ID_Groups, title FROM groups");
-                $groups = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt = $dbh->query("SELECT title FROM groups");
+                $groups = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-                $stmt = $dbh->query("SELECT ID_Teacher, name FROM teacher");
-                $teachers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt = $dbh->query("SELECT name FROM teacher");
+                $teachers = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
                 $stmt = $dbh->query("SELECT DISTINCT auditorium FROM lesson");
                 $auditoriums = $stmt->fetchAll(PDO::FETCH_COLUMN);
@@ -31,7 +31,7 @@
                     <option value="">Виберіть групу</option>';
                     <?php
                     foreach ($groups as $group) {
-                        echo '<option value="' . $group['title'] . '">' . $group['title'] . '</option>';
+                        echo '<option value="' . $group . '">' . $group . '</option>';
                     }
                     ?>
                 </select>
@@ -40,7 +40,7 @@
                     <option value="">Виберіть викладача</option>';
                     <?php
                     foreach ($teachers as $teacher) {
-                        echo '<option value="' . $teacher['name'] . '">' . $teacher['name'] . '</option>';
+                        echo '<option value="' . $teacher . '">' . $teacher . '</option>';
                     }
                     ?>
                 </select>
